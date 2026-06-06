@@ -4,3 +4,4 @@ resources/logs/
 storage/
 public/assets/logs/files
 config/
+composer.phar

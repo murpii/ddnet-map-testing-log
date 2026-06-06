@@ -19,7 +19,10 @@ class Message
         $this->content = Component::instanciateMany($source['content'], [
             Component\Variants\Text::class,
             Component\Variants\Image::class,
-            Component\Variants\Attachment::class
+            Component\Variants\Attachment::class,
+            Component\Variants\Container::class,
+            Component\Variants\Embed::class,
+            Component\Variants\Reactions::class
         ]);
     }
 }
