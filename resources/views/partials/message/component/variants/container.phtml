@@ -1,0 +1,22 @@
+<?php
+$attSub = $config['assets']['mapTestingLogs']['attachments']['subPath'];
+?>
+<div class="msg-container"<?php if ($component->accentColor): ?> style="border-left-color: <?php echoh($component->accentColor) ?>"<?php endif ?>>
+<?php foreach ($component->blocks as $block): ?>
+    <?php if (isset($block['md'])): ?>
+        <div class="container-text"><?php echo($markdownParser->parse($block['md'])) ?></div>
+    <?php elseif (isset($block['separator'])): ?>
+        <hr class="container-separator" />
+    <?php elseif (isset($block['image'])): ?>
+        <a class="image-wrap" href="<?php echoh($assetFetcher->getLink($attSub . $block['image'])) ?>">
+            <img class="msg-image" src="<?php echoh($assetFetcher->getLink($attSub . $block['image'])) ?>" />
+        </a>
+    <?php elseif (isset($block['buttons'])): ?>
+        <div class="container-buttons">
+        <?php foreach ($block['buttons'] as $btn): ?>
+            <a class="container-button" href="<?php echoh($btn['url']) ?>" target="_blank" rel="noopener"><?php echoh($btn['label']) ?></a>
+        <?php endforeach ?>
+        </div>
+    <?php endif ?>
+<?php endforeach ?>
+</div>

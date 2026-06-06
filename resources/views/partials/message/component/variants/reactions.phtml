@@ -1,0 +1,15 @@
+<?php
+$emojiSub = $config['assets']['mapTestingLogs']['emojis']['subPath'];
+?>
+<div class="msg-reactions">
+<?php foreach ($component->reactions as $reaction): ?>
+    <div class="msg-reaction">
+        <?php if (isset($reaction['id'])): ?>
+            <img class="msg-reaction-emoji" src="<?php echoh($assetFetcher->getLink($emojiSub . $reaction['id'] . '.png')) ?>" alt="<?php echoh($reaction['name'] ?? '') ?>" />
+        <?php else: ?>
+            <span class="msg-reaction-emoji"><?php echoh($reaction['emoji'] ?? '') ?></span>
+        <?php endif ?>
+        <span class="msg-reaction-count"><?php echoh($reaction['count']) ?></span>
+    </div>
+<?php endforeach ?>
+</div>

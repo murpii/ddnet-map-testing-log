@@ -145,6 +145,38 @@ $container['viewRenderer'] = function ($container) {
         [
             'view' => 'partials/message/component/variants/text/component/variants/custom-emoji.phtml',
             'helper' => $unmappedViewHelpers['config']
+        ],
+        [
+            'view' => 'partials/message/component/variants/container.phtml',
+            'helper' => $unmappedViewHelpers['assetFetcher']
+        ],
+        [
+            'view' => 'partials/message/component/variants/container.phtml',
+            'helper' => $unmappedViewHelpers['config']
+        ],
+        [
+            'view' => 'partials/message/component/variants/container.phtml',
+            'helper' => $unmappedViewHelpers['markdownParser']
+        ],
+        [
+            'view' => 'partials/message/component/variants/embed.phtml',
+            'helper' => $unmappedViewHelpers['assetFetcher']
+        ],
+        [
+            'view' => 'partials/message/component/variants/embed.phtml',
+            'helper' => $unmappedViewHelpers['config']
+        ],
+        [
+            'view' => 'partials/message/component/variants/embed.phtml',
+            'helper' => $unmappedViewHelpers['markdownParser']
+        ],
+        [
+            'view' => 'partials/message/component/variants/reactions.phtml',
+            'helper' => $unmappedViewHelpers['assetFetcher']
+        ],
+        [
+            'view' => 'partials/message/component/variants/reactions.phtml',
+            'helper' => $unmappedViewHelpers['config']
         ]
     ];
 

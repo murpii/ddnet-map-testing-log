@@ -1,0 +1,48 @@
+<?php
+$attSub = $config['assets']['mapTestingLogs']['attachments']['subPath'];
+?>
+<div class="msg-embed"<?php if ($component->accentColor): ?> style="border-left-color: <?php echoh($component->accentColor) ?>"<?php endif ?>>
+    <div class="embed-content">
+        <?php if ($component->author): ?>
+            <div class="embed-author">
+                <?php if ($component->authorIcon): ?>
+                    <img class="embed-author-icon" src="<?php echoh($assetFetcher->getLink($attSub . $component->authorIcon)) ?>" />
+                <?php endif ?>
+                <span><?php echoh($component->author) ?></span>
+            </div>
+        <?php endif ?>
+        <?php if ($component->title): ?>
+            <div class="embed-title">
+                <?php if ($component->url): ?>
+                    <a href="<?php echoh($component->url) ?>" target="_blank" rel="noopener"><?php echoh($component->title) ?></a>
+                <?php else: ?>
+                    <?php echoh($component->title) ?>
+                <?php endif ?>
+            </div>
+        <?php endif ?>
+        <?php if ($component->description): ?>
+            <div class="embed-description"><?php echo($markdownParser->parse($component->description)) ?></div>
+        <?php endif ?>
+        <?php if ($component->fields): ?>
+            <div class="embed-fields">
+            <?php foreach ($component->fields as $field): ?>
+                <div class="embed-field<?php echo($field['inline'] ? ' inline' : '') ?>">
+                    <div class="embed-field-name"><?php echoh($field['name']) ?></div>
+                    <div class="embed-field-value"><?php echo($markdownParser->parse($field['value'])) ?></div>
+                </div>
+            <?php endforeach ?>
+            </div>
+        <?php endif ?>
+        <?php if ($component->image): ?>
+            <a class="image-wrap" href="<?php echoh($assetFetcher->getLink($attSub . $component->image)) ?>">
+                <img class="embed-image" src="<?php echoh($assetFetcher->getLink($attSub . $component->image)) ?>" />
+            </a>
+        <?php endif ?>
+        <?php if ($component->footer): ?>
+            <div class="embed-footer"><?php echoh($component->footer) ?></div>
+        <?php endif ?>
+    </div>
+    <?php if ($component->thumbnail): ?>
+        <img class="embed-thumbnail" src="<?php echoh($assetFetcher->getLink($attSub . $component->thumbnail)) ?>" />
+    <?php endif ?>
+</div>
